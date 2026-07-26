@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Galería de Modelos | Corporación Mi Hogar</title>
+    <meta name="description" content="Explore nuestra galería completa de portones levadizos, seccionales, corredizos, batientes e industriales. +20 modelos en madera, metal y aluminio.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .swiper-slide {
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 24px; overflow: hidden; height: 520px;
+        }
+        .swiper-pagination-bullet-active { background: #f97316 !important; }
+        .swiper-pagination-bullet { width: 10px; height: 10px; }
+        .gallery-item { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.25); }
+        .filter-btn { transition: all 0.2s ease; }
+        .filter-btn.active { background: #f97316; color: white; box-shadow: 0 4px 12px rgba(249,115,22,0.3); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: #9d4300; transition: all 0.2s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 80%; }
+        @media (max-width: 640px) {
+            .swiper-slide { height: 320px; border-radius: 16px; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-24">
+
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 mx-auto left-0 right-0">
+  <div class="max-w-container-max mx-auto w-full flex justify-between items-center px-4 md:px-gutter">
+    <a href="index.html" class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">door_sliding</span>
+      Corporación Mi Hogar
+    </a>
+    <nav class="hidden lg:flex gap-6 items-center">
+      <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="index.html">Inicio</a>
+      <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="servicios.html">Servicios</a>
+      <a class="nav-link font-body-md text-xs text-primary font-bold border-b-2 border-primary pb-1" href="galeria.html">Galería</a>
+      <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="nosotros.html">Nosotros</a>
+      <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="contacto.html">Contacto</a>
+      <a class="nav-link font-body-md text-xs text-primary font-bold flex items-center gap-0.5 pb-1" href="configurador.html">
+        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">3d_rotation</span> Configurador 3D
+      </a>
+    </nav>
+    <div class="hidden lg:block">
+      <a href="contacto.html" class="bg-primary-container text-on-primary-fixed font-semibold px-5 py-2.5 rounded-lg hover:bg-primary hover:text-on-primary transition-all hover:scale-95 duration-150 shadow-sm text-xs">Cotizar</a>
+    </div>
+    <button class="lg:hidden text-on-surface flex items-center">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+
+<main class="w-full flex flex-col items-center pb-24">
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-8 mt-6">
+
+        <!-- Header -->
+        <div class="text-center mb-10" data-aos="fade-down">
+            <span class="text-xs uppercase tracking-[0.2em] font-bold text-primary mb-3 block">Nuestros Trabajos</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-on-surface mb-4 leading-tight">Galería de Modelos <br class="hidden md:block"/><span class="text-primary">e Instalaciones</span></h1>
+            <p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto">Más de 20 modelos reales de portones levadizos, seccionales, corredizos, batientes e industriales. Fabricación, instalación y automatización.</p>
+        </div>
+
+        <!-- SWIPER CARRUSEL PRINCIPAL -->
+        <div class="w-full mb-16 overflow-hidden rounded-3xl border border-outline-variant shadow-xl bg-surface" data-aos="fade-up">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1770756051811-1612ac8bedfa?w=1200&q=85" alt="Puertas seccionales modernas" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Residencial Premium</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Puertas Seccionales Modernas</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Paneles importados con aislamiento térmico, diseño minimalista y apertura automatizada LiftMaster.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1571189437635-473398e910c1?w=1200&q=85" alt="Portón levadizo de garaje" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Clásico Resistente</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Portón Levadizo de Garaje</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Estructura metálica galvanizada con acabado pintado al horno. Sistema de resortes de torsión americanos.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1743657405622-556b6be5deef?w=1200&q=85" alt="Portón corredizo automático" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Alto Tránsito</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Portón Corredizo Automático</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Acero galvanizado con diseño de reja decorativa. Motor cremallera Nice para apertura suave y silenciosa.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1730684479554-35de4928558b?w=1200&q=85" alt="Puerta seccional industrial" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Industrial</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Puerta Seccional para Almacén</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Paneles de acero con recubrimiento anticorrosivo. Ideal para naves industriales y locales comerciales.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1686668099036-99eb36885f91?w=1200&q=85" alt="Portón batiente de madera" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Diseño Tradicional</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Portón Batiente de Madera Cedro</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Doble hoja pivotante en madera cedro selecta con barniz impermeable. Brazo electromecánico incluido.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1716191299945-4c5b89703971?w=1200&q=85" alt="Portón industrial corredizo" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Gran Formato</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Portón Industrial Corredizo Pesado</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Estructura de hierro galvanizado para maquinaria pesada. Motor industrial 220V con 25 años de vida útil.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1755159009023-d3648e87d8d1?w=1200&q=85" alt="Puerta levadiza de madera" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Elegancia Natural</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Puerta Levadiza de Madera Tornillo</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Madera tornillo seleccionada con acabado satinado. Sistema extra-largo super pesado para mayor durabilidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative">
+                        <img src="/images/porton-seccional-acero.png" alt="Puerta seccional con puerta peatonal" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 flex flex-col justify-end p-6 md:p-10">
+                            <span class="text-xs uppercase font-bold text-primary mb-1">Máxima Funcionalidad</span>
+                            <h2 class="text-white text-2xl md:text-4xl font-bold">Puerta Seccional con Peatonal</h2>
+                            <p class="text-slate-300 text-sm mt-2 max-w-lg">Panel seccional con puerta peatonal integrada. Ideal para espacios reducidos sin perder seguridad.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next text-primary"></div>
+                <div class="swiper-button-prev text-primary"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-10" data-aos="fade-up">
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-primary text-white shadow-lg shadow-primary/20 active" data-filter="all">Todos</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="madera">Madera</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="metal">Metal / Acero</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="seccionales">Seccionales</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="levadizas">Levadizas</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="corredizos">Corredizos</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="batientes">Batientes</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="industriales">Industriales</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="motor">Motores</button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-surface border border-outline-variant hover:bg-surface-variant" data-filter="videos">Videos</button>
+        </div>
+
+        <!-- GALERÍA PRINCIPAL -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5" id="gallery-grid" data-aos="fade-up">
+
+            <!-- ========== LEVADIZAS ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="madera levadizas">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="images/uso/Puertas-levadizas-de-madera-768x430.webp" alt="Puertas levadizas de madera cedro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Madera / Levadiza</span>
+                    <h3 class="text-white font-bold text-base">Puertas levadizas de madera cedro</h3>
+                    <p class="text-slate-300 text-xs mt-1">Acabado barnizado, sistema de resortes americanos</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal levadizas">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="images/uso/Puertas-levadizas-de-metal-768x420.webp" alt="Puertas levadizas de metal galvanizado" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Metal / Levadiza</span>
+                    <h3 class="text-white font-bold text-base">Puertas levadizas de acero galvanizado</h3>
+                    <p class="text-slate-300 text-xs mt-1">Anticorrosivo, ideal para zonas costeras</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="madera levadizas">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1755159009023-d3648e87d8d1?w=600&q=80" alt="Puerta levadiza de madera tornillo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Madera / Levadiza</span>
+                    <h3 class="text-white font-bold text-base">Puerta levadiza de madera tornillo</h3>
+                    <p class="text-slate-300 text-xs mt-1">Sistema extra-largo, acabado satinado</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="levadizas">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1571189437635-473398e910c1?w=600&q=80" alt="Puerta levadiza manual" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Manual / Levadiza</span>
+                    <h3 class="text-white font-bold text-base">Puerta levadiza manual económica</h3>
+                    <p class="text-slate-300 text-xs mt-1">Acondicionada para motorizar después</p>
+                </div>
+            </div>
+
+            <!-- ========== SECCIONALES ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal seccionales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="images/uso/Puertas-seccionales-a-medida-1024x575.webp" alt="Portón seccional con puerta peatonal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Seccional / Peatonal</span>
+                    <h3 class="text-white font-bold text-base">Puerta seccional con puerta peatonal</h3>
+                    <p class="text-slate-300 text-xs mt-1">Panel importado + postigo integrado</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="madera seccionales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVaAiAhmrQELZ_TOj1IaOLhzpLPQpmsguoExDewmBOjS85U0eiD86tLJB6VOYGFggzZ6F48aDwOMz7Lw7KUzpFMqYJ21lEtdhf6zJGezcxXpSOhgvXqws1Ew_h5MvPMVB1LQYluS05ZswT8gDK0Bzl5F0ixOZvNpot9BIPPQ42k8CeRen3cDnVBwrszIMWymK-6lhnP9lTXzs6Oj8uNSfLDl8WqbeSj-TZiFnYo46264O3s84PpXXG0iQEGMUbm8fZS0Qc7Dylz5pv" alt="Puertas seccionales metálicas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Madera / Seccional</span>
+                    <h3 class="text-white font-bold text-base">Puertas seccionales de madera cedro</h3>
+                    <p class="text-slate-300 text-xs mt-1">4 secciones, barniz impermeable UV</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="seccionales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1770756051811-1612ac8bedfa?w=600&q=80" alt="Puertas seccionales modernas blancas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Seccional / Moderno</span>
+                    <h3 class="text-white font-bold text-base">Puertas seccionales modernas blancas</h3>
+                    <p class="text-slate-300 text-xs mt-1">Panel liso, apertura vertical silenciosa</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="seccionales metal">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1730684479554-35de4928558b?w=600&q=80" alt="Puerta seccional color nogal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Seccional / Nogal</span>
+                    <h3 class="text-white font-bold text-base">Puerta seccional color nogal</h3>
+                    <p class="text-slate-300 text-xs mt-1">Panel importado, acabado imitación madera</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="seccionales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Puerta seccional con ventanas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Seccional / Ventanas</span>
+                    <h3 class="text-white font-bold text-base">Puerta seccional con ventanas</h3>
+                    <p class="text-slate-300 text-xs mt-1">Paneles con acrílico templado</p>
+                </div>
+            </div>
+
+            <!-- ========== CORREDIZOS ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal corredizos">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1743657405622-556b6be5deef?w=600&q=80" alt="Portón corredizo de metal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Metal / Corredizo</span>
+                    <h3 class="text-white font-bold text-base">Portón corredizo de acero galvanizado</h3>
+                    <p class="text-slate-300 text-xs mt-1">Diseño de reja, motor cremallera</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="madera corredizos">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1729680372531-f7e4d18980ab?w=600&q=80" alt="Portón corredizo de madera" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Madera / Corredizo</span>
+                    <h3 class="text-white font-bold text-base">Portón corredizo de madera caoba</h3>
+                    <p class="text-slate-300 text-xs mt-1">Estructura acero + revestimiento madera</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="corredizos">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1685932577098-fdc910881de9?w=600&q=80" alt="Portón corredizo con puerta" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Corredizo / Peatonal</span>
+                    <h3 class="text-white font-bold text-base">Portón corredizo con puerta peatonal</h3>
+                    <p class="text-slate-300 text-xs mt-1">Dos en uno: acceso vehicular y peatonal</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="corredizos">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1698665626146-dfbcb6736b5a?w=600&q=80" alt="Portón corredizo automático" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Corredizo / Automático</span>
+                    <h3 class="text-white font-bold text-base">Portón corredizo automático</h3>
+                    <p class="text-slate-300 text-xs mt-1">Motor Smartlift, riel de precisión</p>
+                </div>
+            </div>
+
+            <!-- ========== BATIENTES ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="madera batientes">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1686668099036-99eb36885f91?w=600&q=80" alt="Portón batiente de madera" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Madera / Batiente</span>
+                    <h3 class="text-white font-bold text-base">Portón batiente de madera cedro</h3>
+                    <p class="text-slate-300 text-xs mt-1">Doble hoja, apertura hacia adentro/afuera</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal batientes">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1569784210445-990e7e44ccfe?w=600&q=80" alt="Portón batiente de acero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Metal / Batiente</span>
+                    <h3 class="text-white font-bold text-base">Portón batiente de acero galvanizado</h3>
+                    <p class="text-slate-300 text-xs mt-1">Diseño tipo reja, brazo electromecánico</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="batientes">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://plus.unsplash.com/premium_photo-1677010265559-56e03f1f1d4f?w=600&q=80" alt="Portón batiente automático" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Batiente / Automático</span>
+                    <h3 class="text-white font-bold text-base">Portón batiente automático</h3>
+                    <p class="text-slate-300 text-xs mt-1">Control remoto, instalación 1-2 días</p>
+                </div>
+            </div>
+
+            <!-- ========== INDUSTRIALES ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal industriales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1716191299945-4c5b89703971?w=600&q=80" alt="Portón industrial corredizo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Industrial / Corredizo</span>
+                    <h3 class="text-white font-bold text-base">Portón industrial corredizo gran formato</h3>
+                    <p class="text-slate-300 text-xs mt-1">Acero galvanizado pesado, 220V</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="industriales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="/images/porton-industrial-corredizo.png" alt="Portón industrial automático" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Industrial / Automático</span>
+                    <h3 class="text-white font-bold text-base">Portón industrial automático</h3>
+                    <p class="text-slate-300 text-xs mt-1">Motor industrial, acceso maquinaria pesada</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="metal industriales">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://plus.unsplash.com/premium_photo-1724701624017-c94ab7855b1b?w=600&q=80" alt="Puerta industrial seccional" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Industrial / Seccional</span>
+                    <h3 class="text-white font-bold text-base">Puerta industrial seccional</h3>
+                    <p class="text-slate-300 text-xs mt-1">Paneles aislados, alto tránsito</p>
+                </div>
+            </div>
+
+            <!-- ========== MOTORES ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="motor">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="images/uso/motor-puerta-levadiza-liftmaster-1.webp" alt="Instalación de motor LiftMaster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Motor / Automatización</span>
+                    <h3 class="text-white font-bold text-base">Motor LiftMaster para puerta levadiza</h3>
+                    <p class="text-slate-300 text-xs mt-1">Cadena/faja, control remoto 50m</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="motor">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1729680372531-f7e4d18980ab?w=600&q=80" alt="Motor para portón corredizo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Motor / Corredizo</span>
+                    <h3 class="text-white font-bold text-base">Motor para portón corredizo</h3>
+                    <p class="text-slate-300 text-xs mt-1">Nice Italia, sistema piñón-cremallera</p>
+                </div>
+            </div>
+
+            <!-- ========== INSTALACIONES ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="seccionales instalacion">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="images/uso/Puertas-levadizas-en-lima-768x576.webp" alt="Instalación de puertas seccionales" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Servicio / Instalación</span>
+                    <h3 class="text-white font-bold text-base">Instalación profesional de puertas seccionales</h3>
+                    <p class="text-slate-300 text-xs mt-1">Técnicos especializados, +15 años</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="instalacion">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="/images/porton-madera-residencial.png" alt="Instalación de portón residencial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Residencial / Premium</span>
+                    <h3 class="text-white font-bold text-base">Portón residencial de madera selecta</h3>
+                    <p class="text-slate-300 text-xs mt-1">Diseño a medida, acabado premium</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="mantenimiento">
+                <div class="h-56 md:h-64 overflow-hidden">
+                    <img src="/images/porton-seccional-acero.png" alt="Mantenimiento de portones" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Servicio / Mantenimiento</span>
+                    <h3 class="text-white font-bold text-base">Mantenimiento preventivo y correctivo</h3>
+                    <p class="text-slate-300 text-xs mt-1">Resortes, motores, rieles y lubricación</p>
+                </div>
+            </div>
+
+            <!-- ========== VIDEOS DE YOUTUBE ========== -->
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="videos levadizas" data-video="6Zd9Kvvpsng">
+                <div class="h-56 md:h-64 overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/6Zd9Kvvpsng/maxresdefault.jpg" alt="Puertas levadizas de Madera - Video" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl opacity-80 group-hover:opacity-100 transition-opacity" style="font-size: 64px;">play_circle</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Video / Levadizas</span>
+                    <h3 class="text-white font-bold text-base">Puertas levadizas de Madera</h3>
+                    <p class="text-slate-300 text-xs mt-1">Fabricación en madera cedro y tornillo</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="videos seccionales" data-video="t1jff9bFeJ0">
+                <div class="h-56 md:h-64 overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/t1jff9bFeJ0/maxresdefault.jpg" alt="Puertas Seccionales - Video" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl opacity-80 group-hover:opacity-100 transition-opacity" style="font-size: 64px;">play_circle</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Video / Seccionales</span>
+                    <h3 class="text-white font-bold text-base">Puertas Seccionales</h3>
+                    <p class="text-slate-300 text-xs mt-1">Instalación profesional de paneles seccionales</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="videos corredizos" data-video="U1fVN1fL0NE">
+                <div class="h-56 md:h-64 overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/U1fVN1fL0NE/maxresdefault.jpg" alt="Puertas Corredizas - Video" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl opacity-80 group-hover:opacity-100 transition-opacity" style="font-size: 64px;">play_circle</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Video / Corredizas</span>
+                    <h3 class="text-white font-bold text-base">Puertas Corredizas</h3>
+                    <p class="text-slate-300 text-xs mt-1">Desplazamiento lateral para accesos amplios</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="videos seccionales" data-video="xWJRIeNGxgY">
+                <div class="h-56 md:h-64 overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/xWJRIeNGxgY/maxresdefault.jpg" alt="Paneles para Puertas Seccionales - Video" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl opacity-80 group-hover:opacity-100 transition-opacity" style="font-size: 64px;">play_circle</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Video / Seccionales</span>
+                    <h3 class="text-white font-bold text-base">Paneles para Puertas Seccionales</h3>
+                    <p class="text-slate-300 text-xs mt-1">Conozca los paneles importados que instalamos</p>
+                </div>
+            </div>
+
+            <div class="gallery-item overflow-hidden rounded-2xl border border-outline-variant group relative cursor-pointer bg-surface" data-category="videos automotores" data-video="iPPzIlInH4w">
+                <div class="h-56 md:h-64 overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/iPPzIlInH4w/maxresdefault.jpg" alt="Puertas Automáticas - Video" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-6xl opacity-80 group-hover:opacity-100 transition-opacity" style="font-size: 64px;">play_circle</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <span class="text-xs uppercase font-bold text-primary mb-1">Video / Automatización</span>
+                    <h3 class="text-white font-bold text-base">Puertas Automáticas de Garaje</h3>
+                    <p class="text-slate-300 text-xs mt-1">Sistemas automatizados con control remoto</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA Final -->
+        <div class="text-center mt-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-10 md:p-14 border border-primary/20" data-aos="fade-up">
+            <span class="material-symbols-outlined text-5xl text-primary mb-4 float-anim">image</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-on-surface mb-3">¿No encontraste el modelo exacto?</h2>
+            <p class="text-on-surface-variant max-w-xl mx-auto mb-6">Fabricamos portones a medida en cualquier material, color y diseño. Compártenos tu idea y te cotizamos sin compromiso.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="configurador.html" class="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                    <span class="material-symbols-outlined">3d_rotation</span> Diseñar en 3D
+                </a>
+                <a href="https://wa.me/51930618991" target="_blank" class="bg-white hover:bg-gray-50 border border-outline-variant text-on-surface font-bold px-8 py-4 rounded-2xl shadow-sm transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2.5" fill="none"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <button id="close-lightbox" class="absolute top-5 right-5 text-white/80 hover:text-primary transition-colors z-10">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <button id="prev-lightbox" class="absolute left-5 top-1/2 -translate-y-1/2 text-white/80 hover:text-primary transition-colors z-10">
+        <span class="material-symbols-outlined text-4xl">chevron_left</span>
+    </button>
+    <button id="next-lightbox" class="absolute right-5 top-1/2 -translate-y-1/2 text-white/80 hover:text-primary transition-colors z-10">
+        <span class="material-symbols-outlined text-4xl">chevron_right</span>
+    </button>
+    <div class="max-w-5xl max-h-[80vh] px-4 flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="Ampliada" class="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl hidden">
+        <div id="lightbox-video" class="w-full aspect-video max-h-[80vh] hidden">
+            <iframe id="lightbox-iframe" class="w-full h-full rounded-2xl shadow-2xl" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+    <div class="mt-5 text-center px-4">
+        <h3 id="lightbox-title" class="text-white text-xl md:text-2xl font-bold"></h3>
+        <p id="lightbox-category" class="text-primary text-sm mt-1 uppercase tracking-wider font-semibold"></p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-surface-container border-t border-outline-variant mt-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="font-bold text-lg text-on-surface mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">door_sliding</span> Corporación Mi Hogar
+                </div>
+                <p class="text-sm text-on-surface-variant">Ingeniería en accesos seguros. Calidad estructural y diseño moderno para la industria y el hogar.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-on-surface mb-4 uppercase tracking-wider">Navegación</h4>
+                <ul class="flex flex-col gap-2 text-sm">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Inicio</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="servicios.html">Servicios</a></li>
+                    <li><a class="text-primary font-bold" href="galeria.html">Galería</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="configurador.html">Configurador 3D</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-on-surface mb-4 uppercase tracking-wider">Productos</h4>
+                <ul class="flex flex-col gap-2 text-sm">
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="puertas-levadizas.html">Puertas Levadizas</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="puertas-seccionales.html">Puertas Seccionales</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="portones-corredizos.html">Portones Corredizos</a></li>
+                    <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="portones-batientes.html">Portones Batientes</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-on-surface mb-4 uppercase tracking-wider">Contacto</h4>
+                <ul class="flex flex-col gap-2 text-sm">
+                    <li class="text-on-surface-variant">WhatsApp: +51 930618991</li>
+                    <li class="text-on-surface-variant">Tel: +51 941699505</li>
+                    <li class="text-on-surface-variant">San Juan de Lurigancho, Lima</li>
+                    <li class="text-on-surface-variant">Lun–Sáb 8:00 am – 7:00 pm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-outline-variant py-6 text-center text-xs text-on-surface-variant">
+        &copy; 2024 Corporación Mi Hogar. Todos los derechos reservados.
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Swiper
+        new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            effect: 'creative',
+            creativeEffect: {
+                prev: { translate: [0, 0, -400], opacity: 0.5 },
+                next: { translate: ['100%', 0, 0], opacity: 0.7 },
+            },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            autoplay: { delay: 4500, disableOnInteraction: false },
+            speed: 800,
+        });
+
+        // Filters
+        const buttons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
+        let allItems = [];
+        items.forEach(item => { allItems.push({ el: item, cats: item.getAttribute('data-category').split(' ') }); });
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active', 'bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                let idx = 0;
+                allItems.forEach(({ el, cats }) => {
+                    const match = filter === 'all' || cats.includes(filter);
+                    el.style.display = match ? 'block' : 'none';
+                    if (match) {
+                        el.style.animation = `fadeIn 0.3s ease forwards`;
+                        el.style.animationDelay = `${idx * 0.05}s`;
+                        idx++;
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCategory = document.getElementById('lightbox-category');
+        const closeBtn = document.getElementById('close-lightbox');
+        const prevBtn = document.getElementById('prev-lightbox');
+        const nextBtn = document.getElementById('next-lightbox');
+        let currentIndex = -1;
+        let visibleItems = [];
+
+        const updateVisibleItems = () => {
+            visibleItems = [];
+            items.forEach(item => {
+                if (item.style.display !== 'none') visibleItems.push(item);
+            });
+        };
+
+        const openLightbox = (index) => {
+            updateVisibleItems();
+            if (index < 0 || index >= visibleItems.length) return;
+            currentIndex = index;
+            const item = visibleItems[index];
+            const title = item.querySelector('h3').textContent;
+            const cat = item.querySelector('span').textContent;
+            const videoId = item.getAttribute('data-video');
+            const img = item.querySelector('img');
+            lightboxTitle.textContent = title;
+            lightboxCategory.textContent = cat;
+
+            if (videoId) {
+                document.getElementById('lightbox-iframe').src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                lightboxImg.classList.add('hidden');
+                document.getElementById('lightbox-video').classList.remove('hidden');
+            } else {
+                lightboxImg.src = img.src;
+                lightboxImg.classList.remove('hidden');
+                document.getElementById('lightbox-video').classList.add('hidden');
+                document.getElementById('lightbox-iframe').src = '';
+            }
+
+            lightbox.classList.remove('hidden');
+            setTimeout(() => lightbox.classList.remove('opacity-0'), 50);
+            document.body.style.overflow = 'hidden';
+        };
+
+        items.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                updateVisibleItems();
+                const idx = visibleItems.indexOf(item);
+                if (idx !== -1) openLightbox(idx);
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => { lightbox.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) openLightbox(currentIndex - 1);
+            else openLightbox(visibleItems.length - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < visibleItems.length - 1) openLightbox(currentIndex + 1);
+            else openLightbox(0);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeBtn.click();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeBtn.click();
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            }
+        });
+
+        // Add fadeIn keyframes
+        const style = document.createElement('style');
+        style.textContent = `@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }`;
+        document.head.appendChild(style);
+    });
+</script>
+<script src="./global-utils.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Configurador 3D de Portones | Corporación Mi Hogar</title>
+    <meta name="description" content="Diseña tu portón a medida en 3D y cotízalo al instante. Visualizador interactivo con todos los tipos, materiales y colores.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#341100",
+                        "surface-tint": "#9d4300",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb690",
+                        "outline": "#8c7164",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-primary-container": "#582200",
+                        "secondary-fixed": "#e5e2e1",
+                        "background": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#e0c0b1",
+                        "on-secondary-container": "#656464",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#5f5e5e",
+                        "surface-container": "#eeeeee",
+                        "primary": "#9d4300",
+                        "on-background": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#9b9a9a",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#e5e2e1",
+                        "primary-container": "#f97316",
+                        "on-tertiary-container": "#323232",
+                        "inverse-primary": "#ffb690",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#584237",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "surface-dim": "#dadada",
+                        "primary-fixed": "#ffdbca",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-primary-fixed-variant": "#783200",
+                        "secondary": "#5f5e5e",
+                        "error-container": "#ffdad6"
+                    },
+                    spacing: {
+                        gutter: "24px",
+                        "margin-mobile": "20px",
+                        unit: "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+        }
+        #loader-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            transition: opacity 0.5s ease;
+        }
+        #loader-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e0c0b1;
+            border-top-color: #9d4300;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <div id="loader-screen">
+        <div class="spinner mb-3"></div>
+        <div class="text-on-surface font-semibold text-sm">Cargando Configurador 3D...</div>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module" src="/src/configurador.jsx"></script>
+    <script>
+        (function() {
+            var loader = document.getElementById('loader-screen');
+            var root = document.getElementById('root');
+            var check = setInterval(function() {
+                if (root.children.length > 0) {
+                    clearInterval(check);
+                    loader.classList.add('hidden');
+                }
+            }, 200);
+            setTimeout(function() {
+                clearInterval(check);
+                loader.classList.add('hidden');
+            }, 10000);
+        })();
+    </script>
+</body>
+</html>
