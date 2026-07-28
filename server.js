@@ -55,5 +55,5 @@ app.post('/api/contacto', (req, res) => {
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
     console.log(`📂 Sirviendo archivos desde: ${path.join(__dirname, 'dist')}`);
-    console.log(`📂 Guardando leads en: ${LEADS_FILE}`);
+    console.log(`📦 Leads guardados en: ${LEADS_FILE}`);
 });

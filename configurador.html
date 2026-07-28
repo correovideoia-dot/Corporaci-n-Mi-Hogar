@@ -87,57 +87,38 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
         }
-        #loader-screen {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #f9f9f9;
-            transition: opacity 0.5s ease;
-        }
-        #loader-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #e0c0b1;
-            border-top-color: #9d4300;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: #9d4300; transition: all 0.2s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 80%; }
     </style>
 </head>
-<body class="bg-surface text-on-surface">
+<body class="bg-background text-on-background font-body-md text-body-md antialiased" style="padding-top:0">
 
-    <div id="loader-screen">
-        <div class="spinner mb-3"></div>
-        <div class="text-on-surface font-semibold text-sm">Cargando Configurador 3D...</div>
-    </div>
+    <!-- TopNavBar (idéntico al de index.html) -->
+    <header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 mx-auto left-0 right-0">
+      <div class="max-w-container-max mx-auto w-full flex justify-between items-center px-4 md:px-gutter">
+        <a href="index.html" class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">door_sliding</span>
+          Corporación Mi Hogar
+        </a>
+        <nav class="hidden lg:flex gap-6 items-center">
+          <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="index.html">Inicio</a>
+          <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="servicios.html">Servicios</a>
+          <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="galeria.html">Galería</a>
+          <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="nosotros.html">Nosotros</a>
+          <a class="nav-link font-body-md text-xs text-on-surface-variant hover:text-primary transition-colors pb-1" href="contacto.html">Contacto</a>
+          <a class="nav-link font-body-md text-xs text-primary font-bold flex items-center gap-0.5 pb-1" href="configurador.html">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">3d_rotation</span> Configurador 3D
+          </a>
+        </nav>
+        <div class="hidden lg:block">
+          <a href="contacto.html" class="bg-primary-container text-on-primary-fixed font-semibold px-5 py-2.5 rounded-lg hover:bg-primary hover:text-on-primary transition-all hover:scale-95 duration-150 shadow-sm text-xs">Cotizar</a>
+        </div>
+      </div>
+    </header>
 
     <div id="root"></div>
 
     <script type="module" src="/src/configurador.jsx"></script>
-    <script>
-        (function() {
-            var loader = document.getElementById('loader-screen');
-            var root = document.getElementById('root');
-            var check = setInterval(function() {
-                if (root.children.length > 0) {
-                    clearInterval(check);
-                    loader.classList.add('hidden');
-                }
-            }, 200);
-            setTimeout(function() {
-                clearInterval(check);
-                loader.classList.add('hidden');
-            }, 10000);
-        })();
-    </script>
 </body>
 </html>
